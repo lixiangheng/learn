@@ -21,11 +21,9 @@ while True:
         break
     if name.isspace() or len(name) == 0:
         print("不能为空，请重新输入！")
-        name = input("输入你的名字的拼音：")
-
-    dit[name] = (random.sample(range(1, 99+1), 1))
-
-
+    else:
+        dit[name] = (random.sample(range(1, 99+1), 1))
+  
 # 词典排序，生成新的词典
 dit2 = sorted(dit.items(), key=lambda x: x[1], reverse=True)
 
