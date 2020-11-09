@@ -185,11 +185,11 @@ cat > scheduler.csr <<\EOF
     ]
 }
 EOF
-#cfssl gencert -initca ca-csr.json | cfssljson -bare ca
-#cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=kubernetes  admin-csr.json | cfssljson -bare admin
+cfssl gencert -initca ca-csr.json | cfssljson -bare ca
+cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=kubernetes  admin-csr.json | cfssljson -bare admin
 cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=kubernetes  apiserver-csr.json | cfssljson -bare kube-apiserver
-#cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=kubernetes  controller-manager.csr | cfssljson -bare manager
-#cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=kubernetes  scheduler.csr | cfssljson -bare scheduler
+cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=kubernetes  controller-manager.csr | cfssljson -bare manager
+cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=kubernetes  scheduler.csr | cfssljson -bare scheduler
 
 # proxy-client
 echo "kubernetes-config end-------"
